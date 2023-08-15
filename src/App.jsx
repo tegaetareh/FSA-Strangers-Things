@@ -4,12 +4,13 @@ import Login from "./pages/Login"
 import Profile from "./pages/Profile"
 import Register from "./pages/Register"
 import Posts from "./pages/Posts"
+import Navbar from "./components/NavBar"
 function App() {
   
 
   return (
     <>
-      <h1>Apps Main Page</h1>
+      <Navbar />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
