@@ -1,17 +1,25 @@
 import { useState } from "react"
-export default function Login() {
+import {Routes, Route, useNavigate} from 'react-router-dom'
+export default function Login({setToken}) {
+    const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
     const [successMessage, setSuccessMessage] = useState(null);
-
+    function navigateToPosts(){
+        // 👇️ navigate to /
+       
+        navigate('/posts');
+        
+      };
     async function handleSubmit(event) {
         event.preventDefault();
-        // if((username.length<4) ||(password.length<5)){
+        // if(password.length<5){
         //     setUsername('')
         //     setPassword('')
         //     return(setError("Username and Password must be eight characters or more"))
         // }
+       
         try {
             const response = await fetch('https://strangers-things.herokuapp.com/api/2302-acc-et-web-pt-a/users/login', 
               { 
@@ -37,10 +45,11 @@ export default function Login() {
             }
 
             setSuccessMessage(result.data.message)
-            // setToken(result.data.token)
+            setToken(result.data.token)
             //console.log("Token: ", result.data.token) 
-            console.log(result.data.message)
+            console.log(successMessage)
             //console.log("Error is ", error)
+            navigateToPosts();
             
         } catch (error) {
           //setError(error.message);

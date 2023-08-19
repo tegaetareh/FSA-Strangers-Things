@@ -1,5 +1,7 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 export default function Register() {
+    const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
@@ -27,12 +29,19 @@ export default function Register() {
               })
             const result = await response.json();
             // setToken(result.data.token)
-            console.log(result);
-            console.log("Token: ", result.data.token)
             setUsername('')
             setPassword('')
+            if(!result.success){
+                setError(result.error.message)
+                console.log(result.error.message)
+                
+            }
+            console.log(result);
+            console.log("Token: ", result.data.token)
+
+            navigate('/login');
         } catch (error) {
-            setError(error.message);
+            //setError(error.message);
             console.log(error)
         }
         

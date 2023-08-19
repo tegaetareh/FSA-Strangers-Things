@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { fetchPosts } from "../API/APIFunctions";
-export default function Posts() {
+export default function Posts({token}) {
 
     async function fetchData() {
         const data = await fetchPosts()
