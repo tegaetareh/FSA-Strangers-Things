@@ -17,7 +17,7 @@ export default function PostsForm({token, fetchData}) {
                 description: description,
                 price: price,
                 location: location,
-                willDeliver: willDeliver
+                willDeliver: willDeliver,
                }
         }
         await createNewPost(newPost, token)
