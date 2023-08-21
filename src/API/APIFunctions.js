@@ -105,8 +105,9 @@ export async function fetchUser(token) {
           },
         });
         const result = await response.json();
-        console.log(result);
-        return result
+        // console.log("token is: ", token)
+        console.log(result.data);
+        return result.data
       } catch (err) {
         console.error(err);
       }

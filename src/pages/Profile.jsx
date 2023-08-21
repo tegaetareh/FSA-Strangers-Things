@@ -5,9 +5,10 @@ import PostsForm from "../components/PostsForm";
 export default function Profile({ token }) {
     const [posts, setPosts] = useState([])
     // const [filteredPosts, setFilteredPosts] = useState([]);
+    // console.log("tokein in profile page", token)
 
     async function fetchData() {
-        const data = await fetchUser()
+        const data = await fetchUser(token)
         setPosts(data)
         // setFilteredPosts(data.posts)
         console.log("Data: ", data);
@@ -24,10 +25,10 @@ export default function Profile({ token }) {
 
         <>
             
-            <h1>Posts</h1>
+            <h1>Profile</h1>
             <main>
                 {/* {
-                    filteredPosts.map((post) => (
+                    posts.map((post) => (
                         <PostCard
                             key={post._id}
                             post={post}
