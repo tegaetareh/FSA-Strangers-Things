@@ -1,5 +1,5 @@
 import { deletePost } from "../API/APIFunctions";
-import { useNavigate } from "react-router-dom";
+
 
 export default function DeletePost({token, _id, fetchPosts}) {
 

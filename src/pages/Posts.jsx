@@ -18,7 +18,6 @@ export default function Posts({ token }) {
         fetchData()
     }, [])
     function handleSearch(e){
-        //code goes here
         e.preventDefault()
         const search = e.target.value
         const filteredPosts = posts.filter((post) => {

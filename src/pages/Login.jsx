@@ -38,7 +38,7 @@ export default function Login({setToken}) {
             setUsername('')
             setPassword('')
             
-            console.log(result);
+            // console.log(result);
             if(!result.success){
                 setError(result.error.message)
                 console.log(result.error.message)

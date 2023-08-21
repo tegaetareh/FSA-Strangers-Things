@@ -47,9 +47,67 @@ export async function deletePost(token, _id) {
         });
         const result = await response.json();
         console.log(result);
+        
         return result
       } catch (err) {
         console.error(err);
       }
 
 }
+
+export async function fetchPostsById(token, _id) {
+    try {
+      const response = await fetch(
+        `${API_URL}/posts/${_id}`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+          }
+        }
+      );
+      const result = await response.json();
+      console.log(result)
+      console.log(`${API_URL}/posts/${_id}`)
+      return result;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  export async function postMessage(newPost, token, _id) {
+    // console.log("New post is: ", newPost)
+    // console.log (_id)
+    try {
+        const response = await fetch(`${API_URL}/posts/${_id}/messages`, {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify(newPost)
+        });
+        const result = await response.json();
+        console.log(result);
+        return result
+    } catch (err) {
+        console.error(err);
+    }
+    
+}
+
+export async function fetchUser(token) {
+    try {
+        const response = await fetch(`${API_URL}/users/me`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+        });
+        const result = await response.json();
+        console.log(result);
+        return result
+      } catch (err) {
+        console.error(err);
+      }
+  }

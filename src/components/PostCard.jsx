@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import DeletePost from './deletePost';
+import SinglePost from '../pages/SinglePost';
+import SendMessageButton from '../components/SendMessageButton';
 
 
 
@@ -22,8 +24,8 @@ export default function PostCard({ post, fetchPosts, token }) {
                 <p>Description: {description}</p>
                 <p>Price: {price} Location: {location} Will Deliver: {delivery}</p>
                 {/* <p>{messages.map()}</p> */}
-                {token && <button>Send Message to Seller</button>}
-                {token&& <DeletePost token={token} _id={_id} fetchPosts={fetchPosts}/>}
+                {token && <SendMessageButton token={token} id={_id} />}
+                {token && <DeletePost token={token} _id={_id} fetchPosts={fetchPosts}/>}
                 {
                     // make button function to show message form below post. 
                     // must be logged in to send message
