@@ -106,8 +106,44 @@ export async function fetchUser(token) {
         });
         const result = await response.json();
         // console.log("token is: ", token)
-        console.log(result.data);
+        // console.log(result.data);
+        // console.log(result.data.messages);
         return result.data
+      } catch (err) {
+        console.error(err);
+      }
+  }
+
+  export async function fetchUserPosts(token) {
+    try {
+        const response = await fetch(`${API_URL}/users/me`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+        });
+        const result = await response.json();
+        // console.log("token is: ", token)
+        // console.log(result.data);
+        // console.log(result.data.posts);
+        return result.data.posts
+      } catch (err) {
+        console.error(err);
+      }
+  }
+  export async function fetchUserMessages(token) {
+    try {
+        const response = await fetch(`${API_URL}/users/me`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+        });
+        const result = await response.json();
+        // console.log("token is: ", token)
+        // console.log(result.data);
+        // console.log(result.data.posts);
+        return result.data.messages
       } catch (err) {
         console.error(err);
       }
