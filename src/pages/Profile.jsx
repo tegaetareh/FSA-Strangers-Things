@@ -5,6 +5,7 @@ import ProfileCard from "../components/ProfileCard";
 import PostCard from "../components/PostCard";
 export default function Profile({ token }) {
     const [posts, setPosts] = useState([])
+    const [userProfile, setUserprofile] = useState([])
     const [postData, setPostData] = useState([])
     const [filteredPosts, setFilteredPosts] = useState([]);
 
@@ -12,19 +13,22 @@ export default function Profile({ token }) {
     async function fetchData() {
         const data = await fetchUserMessages(token)
         const postResult = await fetchUserPosts(token)
+        const getUserProfile = await fetchUser(token)
         setPosts(data)
         setPostData(postResult)
         setFilteredPosts(postResult)
-        console.log("Data from profile: ", data);
-        console.log("Posts data is", postResult)
+        setUserprofile(getUserProfile)
+        console.log("User message: ", data);
+        console.log("Users Post data is", postResult)
+        console.log("UserProfile in fetchdATA", userProfile)
 
 
     }
     useEffect(() => {
         fetchData()
     }, [])
-    const activePosts= filteredPosts.filter((post) => {
-        return post.active ===true
+    const activePosts = filteredPosts.filter((post) => {
+        return post.active === true
     })
 
 
@@ -34,9 +38,10 @@ export default function Profile({ token }) {
         <>
 
 
-            <h1>Welcome</h1>
-            {/* {token && <h2>{posts.username}</h2>} */}
+            <h1>Welcome {token && userProfile.username}</h1>
+            {/* {token && <h2>{userProfile.username}</h2>} */}
             {/* <p> Please  <Link to="/login">Login</Link></p> */}
+            {console.log("User profile in return statement", userProfile)}
 
             <main>
                 <h2>Messages</h2>
@@ -44,9 +49,10 @@ export default function Profile({ token }) {
 
                     {/* //renders if token is present             */}
                     {posts.map((post) => (
-                        <div><p key={post._id}></p>
-                            <div>
-                                Message to: {post.post.author.username}
+                        //i put the key in the root div and thats what stopped the unique key error.
+                        <div key={post._id}>
+                            <div >
+                                Message to: {post.post.author.username} <br />
                                 Message is: {post.content}
                             </div>
 
@@ -92,7 +98,7 @@ export default function Profile({ token }) {
                 }
             </main>
             <section>
-                
+
                 {/* {
                         postData.map((post) => (
                         <ProfileCard

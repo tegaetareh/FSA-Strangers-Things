@@ -9,14 +9,16 @@ import Navbar from "./components/NavBar"
 import SinglePost from "./pages/SinglePost"
 
 function App() {
-  const [token, setToken] = useState(localStorage.getItem("token"))
-  
+  const [token, setToken] = useState(localStorage.getItem('Token'))
+  //const [token, setToken] = useState('');
+  //localStorage.setItem('Token', token);
+  console.log("App page", token)
 
   return (
     <>
       <Navbar setToken = {setToken} token = {token}/>
       <Routes>
-        <Route path="/login" element={<Login setToken = {setToken}/>} />
+        <Route path="/login" element={<Login setToken = {setToken} token={token} />} />
         <Route path="/register" element={<Register setToken = {setToken}/>} />
         <Route path="/posts/*" element={<Posts token = {token}/>} />
         <Route path="/profile" element={<Profile token = {token}/>} />

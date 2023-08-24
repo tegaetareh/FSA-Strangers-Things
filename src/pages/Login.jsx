@@ -1,6 +1,6 @@
 import { useState } from "react"
 import {Routes, Route, useNavigate} from 'react-router-dom'
-export default function Login({setToken}) {
+export default function Login({setToken, token}) {
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -17,7 +17,7 @@ export default function Login({setToken}) {
         // if(password.length<5){
         //     setUsername('')
         //     setPassword('')
-        //     return(setError("Username and Password must be eight characters or more"))
+        //     return(setError("Password must be five characters or more"))
         // }
        
         try {
@@ -45,9 +45,15 @@ export default function Login({setToken}) {
             }
 
             setSuccessMessage(result.data.message)
-            setToken(result.data.token)
+            //setToken(result.data.token)
+            console.log("login passed", token)
             //console.log("Token: ", result.data.token) 
-            console.log(successMessage)
+            localStorage.setItem('Token', result.data.token);
+            console.log("login local storage", localStorage.getItem('Token'))
+            setToken(localStorage.getItem('Token'))
+            // setToken(genToken)
+            console.log("login after set token", token)
+            //console.log("Success message", successMessage)
             //console.log("Error is ", error)
             navigateToPosts();
             
