@@ -36,71 +36,71 @@ export default function Profile({ token }) {
     return (
 
         <>
-        <div className="profile">
+            <div className="profile">
 
 
-            <h1>Welcome {token && userProfile.username}</h1>
-            {/* {token && <h2>{userProfile.username}</h2>} */}
-            {/* <p> Please  <Link to="/login">Login</Link></p> */}
-            {console.log("User profile in return statement", userProfile)}
+                <h1 className="heading">Welcome {token && userProfile.username}</h1>
+                {/* {token && <h2>{userProfile.username}</h2>} */}
+                {/* <p> Please  <Link to="/login">Login</Link></p> */}
+                {console.log("User profile in return statement", userProfile)}
 
-            <main>
-                <h2>Messages</h2>
-                <div>{token ? <div>
+                <main>
+                    <h2>Messages</h2>
+                    <div>{token ? <div>
 
-                    {/* //renders if token is present             */}
-                    {posts.map((post) => (
-                        //i put the key in the root div and thats what stopped the unique key error.
-                        <div key={post._id}>
-                            <div >
-                                Message to: {post.post.author.username} <br />
-                                Message is: {post.content}
+                        {/* //renders if token is present             */}
+                        {posts.map((post) => (
+                            //i put the key in the root div and thats what stopped the unique key error.
+                            <div key={post._id}>
+                                <div >
+                                    Message to: {post.post.author.username} <br />
+                                    Message is: {post.content}
+                                </div>
+
+
                             </div>
 
-
-                        </div>
-
-                    ))
-
-
-                    }
-                    <h2>Posts</h2>
-                    {
-                        activePosts.map((post) => (
-                            <ProfileCard
-                                key={post._id}
-                                post={post}
-                                fetchPosts={fetchData}
-                                token={token}
-                            />
                         ))
+
+
+                        }
+                        <h2>Posts</h2>
+                        {
+                            activePosts.map((post) => (
+                                <ProfileCard
+                                    key={post._id}
+                                    post={post}
+                                    fetchPosts={fetchData}
+                                    token={token}
+                                />
+                            ))
+                        }
+
+
+
+
+                    </div> : <h3>Please <Link to="/login">Login</Link></h3>}</div>
+                    {
+
+                        // posts.map((post) => (
+                        //     <div><p key={post._id}></p>
+                        //     <div>
+                        //         Message to: {post.post.author.username} 
+                        //         Message is: {post.content}
+                        //     </div>
+
+
+                        //      </div>
+
+                        // ))
+
+
+
                     }
+                </main>
+                <section>
 
-
-
-
-                </div> : <h3>Please <Link to="/login">Login</Link></h3>}</div>
-                {
-
-                    // posts.map((post) => (
-                    //     <div><p key={post._id}></p>
-                    //     <div>
-                    //         Message to: {post.post.author.username} 
-                    //         Message is: {post.content}
-                    //     </div>
-
-
-                    //      </div>
-
-                    // ))
-
-
-
-                }
-            </main>
-            <section>
-
-                {/* {
+                    {/* {
                         postData.map((post) => (
                         <ProfileCard
                             key={post._id}
@@ -110,7 +110,7 @@ export default function Profile({ token }) {
                         />
                     ))
                 } */}
-            </section>
+                </section>
             </div>
         </>
 

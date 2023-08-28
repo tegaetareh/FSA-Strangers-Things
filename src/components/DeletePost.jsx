@@ -12,7 +12,7 @@ export default function DeletePost({token, _id, fetchPosts}) {
     return (
 
         <>
-            <button onClick={() => handleClick(_id)}>  Delete Post </button>
+            <button className="deleteButton" onClick={() => handleClick(_id)}>  Delete Post </button>
           
         </>
 

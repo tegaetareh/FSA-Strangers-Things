@@ -74,11 +74,11 @@ export default function Login({ setToken, token }) {
           {error && <p className='error'>{error}</p>}
           <form onSubmit={handleSubmit}>
             <label>
-              Username: <input value={username} onChange={(e) => setUsername(e.target.value)} />
-            </label>
+              Username:
+            </label> <input value={username} onChange={(e) => setUsername(e.target.value)} />
             <label>
-              Password: <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            </label>
+              Password: 
+            </label><input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             <button>Submit</button>
           </form>
 

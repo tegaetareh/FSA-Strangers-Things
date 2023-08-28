@@ -32,7 +32,7 @@ export default function PostsForm({token, fetchData}) {
 
     
     return (
-        <div className="postForm" >
+        <div className="newpostForm" >
             <h1>Add new Post</h1>
             <form onSubmit={handleSubmit}>
             <label htmlFor="title">Title: </label>

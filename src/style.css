@@ -85,9 +85,10 @@ ul {
     margin-right: 20%;
     border-radius: 15px;
 }
-form, label, input {
+form {
     display: flex;
     flex-direction: column;
+    
     
   }
 
@@ -98,7 +99,7 @@ form, label, input {
   }
   button {
     height: 40px;
-    width: 300px;
+    width: 150px;
     align-self: center;
     margin: 1.5rem;
   }
@@ -111,9 +112,11 @@ form, label, input {
     padding: 5px;
     margin:7px;
     background-color: gainsboro;
+    width: 80%;
   }
   .postCard>h3 {
-    text-decoration: underline
+    text-decoration: underline;
+    
   }
   .searchbar {
     
@@ -121,8 +124,40 @@ form, label, input {
 
   }
 
-  .postForm {
+  div.newpostForm {
     display: flex;
     flex-direction: column;
     background-color: gainsboro;
+    text-align: center;
+    
+    margin-left: 25%;
+    margin-right: 25%;
+    justify-content: center;
+    margin-top: 5px;
+    border-radius: 25px;
   }
+  
+  .postForm {
+    display: block;
+  }
+  .postForm >button {
+    padding: 5px;
+    width: auto;
+    height: 30px;
+  }
+  .postForm >input {
+    padding: 5px;
+    width: auto;
+    height: 30px;
+  }
+  .deleteButton {
+    padding: 5px;
+    width: auto;
+    height: 30px;
+    margin: auto;
+  }
+
+   hr {
+    margin-top: 3px;
+    width: 70%;
+   }

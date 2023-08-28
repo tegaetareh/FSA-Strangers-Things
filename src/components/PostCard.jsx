@@ -24,6 +24,7 @@ export default function PostCard({ post, fetchPosts, token }) {
                 <p>Description: {description}</p>
                 <p>Price: {price} Location: {location} Will Deliver: {delivery}</p>
                 {/* <p>{messages.map()}</p> */}
+                <hr className='line' />
                 {token && <SendMessageButton token={token} id={_id} />}
                 {token && <DeletePost token={token} _id={_id} fetchPosts={fetchPosts}/>}
                 {

@@ -41,7 +41,7 @@ export default function SendMessageButton({ token, id }) {
             {/* <Routes>
                 <Route path="/posts/singlepost" element={<SinglePost token={token} _id={_id} />} />
             </Routes> */}
-            <form onSubmit={handleSubmit}>
+            <form className="postForm" onSubmit={handleSubmit}>
                 <label>
                     <input value={message} onChange={(e) => setMessage(e.target.value)} />
                 </label>

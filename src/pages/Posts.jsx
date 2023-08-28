@@ -37,7 +37,7 @@ export default function Posts({ token }) {
                     <input className="searchbar" onChange={handleSearch} type="text" id="search" />
                 </form>
                 {token && <PostsForm token={token} fetchData={fetchData} />}
-                <h1>Posts</h1>
+                <h1 className="heading">Posts</h1>
                 <main>
                     {
                         filteredPosts.map((post) => (
