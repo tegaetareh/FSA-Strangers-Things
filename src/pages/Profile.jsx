@@ -36,6 +36,7 @@ export default function Profile({ token }) {
     return (
 
         <>
+        <div className="profile">
 
 
             <h1>Welcome {token && userProfile.username}</h1>
@@ -110,6 +111,7 @@ export default function Profile({ token }) {
                     ))
                 } */}
             </section>
+            </div>
         </>
 
 

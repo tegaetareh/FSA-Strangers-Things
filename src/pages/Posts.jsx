@@ -17,7 +17,7 @@ export default function Posts({ token }) {
     useEffect(() => {
         fetchData()
     }, [])
-    function handleSearch(e){
+    function handleSearch(e) {
         e.preventDefault()
         const search = e.target.value
         const filteredPosts = posts.filter((post) => {
@@ -30,24 +30,28 @@ export default function Posts({ token }) {
     return (
 
         <>
-            {token && <PostsForm token={token} fetchData={fetchData} />}
-            <form onSubmit={handleSearch}>
-                <label htmlFor="search">Search Posts</label>
-                <input onChange={handleSearch} type="text" id="search" />
-            </form>
-            <h1>Posts</h1>
-            <main>
-                {
-                    filteredPosts.map((post) => (
-                        <PostCard
-                            key={post._id}
-                            post={post}
-                            fetchPosts={fetchData}
-                            token={token}
-                        />
-                    ))
-                }
-            </main>
+            <div className="posts">
+                
+                <form onSubmit={handleSearch}>
+                    {/* <label htmlFor="search">Search Posts</label> */}
+                    <input className="searchbar" onChange={handleSearch} type="text" id="search" />
+                </form>
+                {token && <PostsForm token={token} fetchData={fetchData} />}
+                <h1>Posts</h1>
+                <main>
+                    {
+                        filteredPosts.map((post) => (
+                            <PostCard
+                                key={post._id}
+                                post={post}
+                                fetchPosts={fetchData}
+                                token={token}
+                            />
+                        ))
+                    }
+                </main>
+
+            </div>
         </>
 
 
